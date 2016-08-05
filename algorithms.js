@@ -30,10 +30,10 @@ var countVowels = function(str, count){
   if (str.length === 0) {
     return count;
   } else {
-    if (vowels.indexOf(str.slice(0,1) > -1)) {
+    if (vowels.indexOf(str.slice(0,1)) > -1) {
       count++;
     }
-    return count;
+    return countVowels(str.slice(1), count);
   }
 };
 
