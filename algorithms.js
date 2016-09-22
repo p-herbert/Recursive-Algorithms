@@ -140,8 +140,45 @@ const printRangeUpDown = (min, max) => {
 // value, a left and a right, return the sum of all of the values.
 // remember, binary tree's are different from binary search trees!
 // you'll need to create a binary tree constructor!
-var binaryTreeSum = function(tree){
+var myTree = {
+  value: 10,
+  left: {
+    value: 3,
+    left: {
+      value: 1,
+      left: null,
+      right: null
+    },
+    right: {
+      value: 7,
+      left: null,
+      right: {
+        value: 8,
+        left : null,
+        right: null
+      }
+    }
+  },
+  right: {
+    value: 30,
+    left: null,
+    right: null
+  }
+};
+const binaryTreeSum = (tree) => {
+  let sum = 0;
 
+  sum += tree.value;
+
+  if (tree.left !== null) {
+    sum += binaryTreeSum(tree.left);
+  }
+
+  if (tree.right !== null) {
+    sum += binaryTreeSum(tree.right);
+  }
+
+  return sum;
 };
 
 ///////////////////////////////////////////////////////////////////////
