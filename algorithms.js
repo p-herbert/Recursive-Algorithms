@@ -68,8 +68,15 @@ const recursiveSum = (n) => {
 // PowerOfTwo(8) -> true
 // PowerOfTwo(9) -> false
 
-var isPowerOfTwo = function(n){
+const isPowerOfTwo = (n) => {
 
+  if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  }
+
+  return isPowerOfTwo(n - 2);
 };
 
 ///////////////////////////////////////////////////////////////////////
