@@ -200,6 +200,21 @@ const binaryTreeSum = (tree) => {
 //                    8
 
 // you'll need to create a binary search tree constructor!
-var arrayToBinarySearchTree = function(array){
+const arrayToBinarySearchTree = (array) => {
+  if (array.length > 0) {
+    const mid = Math.floor((array.length - 1) / 2);
+    const root = array[mid];
+    const left = array.slice(0, mid);
+    const right = array.slice(mid + 1, array.length);
 
+    const tree = {
+      value: root,
+      left: arrayToBinarySearchTree(left),
+      right: arrayToBinarySearchTree(right) };
+
+    return tree;
+  }
+
+  return null;
 };
+
