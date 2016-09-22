@@ -45,8 +45,18 @@ const countVowels = (str) => {
 // sumDigits(49) → 13
 // sumDigits(12) → 3
 
-var recursiveSum = function(n){
+const recursiveSum = (n) => {
 
+  const digits = n.toString().split('');
+  let sum = 0;
+
+  sum += +digits.pop();
+
+  if (digits.length > 0) {
+    sum += recursiveSum(+digits.join(''));
+  }
+
+  return sum;
 };
 
 ///////////////////////////////////////////////////////////////////////
